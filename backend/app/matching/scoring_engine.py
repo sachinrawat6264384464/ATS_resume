@@ -141,3 +141,4 @@ class ScoringEngine:
         # Blend tool presence (60%) with BM25 relevance (40%)
         project_score = (tool_ratio * 60.0) + (min(100.0, bm25_score) * 0.40)
         return round(min(100.0, max(0.0, project_score)), 1)
+

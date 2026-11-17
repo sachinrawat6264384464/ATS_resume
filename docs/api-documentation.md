@@ -198,3 +198,4 @@ Downloads an audit-ready, high-resolution PDF report generated deterministically
 **Response (200 OK):**
 - `Content-Type: application/pdf`
 - `Content-Disposition: attachment; filename="ResumeIQ_Report_{analysis_id}.pdf"`
+

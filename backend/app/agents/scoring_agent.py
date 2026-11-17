@@ -54,3 +54,4 @@ class ScoringAgent:
             "stage": "ATS Score Calculated & Decomposed",
             "progress_percentage": 80
         }
+

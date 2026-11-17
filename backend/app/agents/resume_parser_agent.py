@@ -42,3 +42,4 @@ class ResumeParserAgent:
             "stage": "Resume Verified",
             "progress_percentage": 15
         }
+

@@ -103,3 +103,4 @@ Preferred Qualifications:
         put_res = await client.put(f"/api/v1/jobs/{job_id}", json=updated_extracted)
         assert put_res.status_code == 200
         assert "Apache Kafka" in put_res.json()["extracted_data"]["required_skills"]
+

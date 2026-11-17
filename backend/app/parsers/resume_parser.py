@@ -328,3 +328,4 @@ class ResumeParser:
             "extraction_confidence": 0.0,
             "warnings": warnings
         }
+

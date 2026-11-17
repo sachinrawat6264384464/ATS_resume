@@ -82,3 +82,4 @@ flowchart TD
 - **Sanitization Pipeline**: All raw parsed text undergoes regex neutralization stripping null bytes (`\x00`), HTML tags (`<script>`, `<iframe>`), and prompt injection sequences.
 - **Sliding-Window Rate Limiting**: In-memory token sliding window limits requests to 60 req/min per IP address, responding with HTTP 429 and `Retry-After`.
 - **Zero Credentials in Code**: Database and external service configuration rely exclusively on environment variables (`.env`).
+

@@ -62,3 +62,4 @@ The `RateLimitMiddleware` maintains a per-IP sliding window tracking request tim
 - Window size: 60 seconds
 - Max allowed: 60 requests
 - Response upon breach: HTTP 429 Too Many Requests with header `Retry-After: 60`.
+

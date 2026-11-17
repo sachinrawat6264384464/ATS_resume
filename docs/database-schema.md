@@ -146,3 +146,4 @@ User feedback for scoring calibration.
 - `rating` (INTEGER, NOT NULL): 1 to 5.
 - `comments` (TEXT, NULL).
 - `created_at` (TIMESTAMP WITH TIME ZONE, DEFAULT utcnow).
+

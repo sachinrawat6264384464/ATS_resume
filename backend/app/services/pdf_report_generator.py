@@ -207,3 +207,4 @@ class PDFReportGenerator:
         doc.build(story)
         buffer.seek(0)
         return buffer.getvalue()
+

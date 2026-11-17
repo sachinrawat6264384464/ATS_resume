@@ -58,3 +58,4 @@ export default function CategoryBreakdownChart({ scores }: CategoryBreakdownChar
     </div>
   );
 }
+

@@ -83,3 +83,4 @@ class PDFParser:
             "is_scanned": is_scanned,
             "warnings": ["Document appears to be scanned image with little extractable text."] if is_scanned else []
         }
+

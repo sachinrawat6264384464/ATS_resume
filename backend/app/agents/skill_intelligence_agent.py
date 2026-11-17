@@ -27,3 +27,4 @@ class SkillIntelligenceAgent:
             "stage": "Skills Normalized & Categorized",
             "progress_percentage": 45
         }
+

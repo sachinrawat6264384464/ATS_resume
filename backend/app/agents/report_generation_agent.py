@@ -52,3 +52,4 @@ class ReportGenerationAgent:
             "stage": "Report Ready",
             "progress_percentage": 100
         }
+

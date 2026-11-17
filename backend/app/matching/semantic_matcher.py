@@ -132,3 +132,4 @@ class SemanticMatcher:
             "average_similarity": round(avg_sim, 3),
             "matches": sorted(matches, key=lambda x: x["similarity"], reverse=True)
         }
+

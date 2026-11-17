@@ -143,3 +143,4 @@ def test_bm25_and_semantic_matching():
     sem_res = SemanticMatcher.match(chunks, requirements)
     assert sem_res["score"] > 0.0
     assert len(sem_res["matches"]) == len(requirements)
+

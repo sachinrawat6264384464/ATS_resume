@@ -63,3 +63,4 @@ docker compose up --build -d
 | `MAX_UPLOAD_SIZE_MB` | `10` | Maximum allowed file upload size. |
 | `RATE_LIMIT_PER_MINUTE` | `60` | Sliding-window request limit per client IP. |
 | `UPLOAD_DIR` | `./uploads` | Directory for isolated temporary resume storage. |
+

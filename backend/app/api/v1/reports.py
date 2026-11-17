@@ -55,3 +55,4 @@ def download_pdf_report(analysis_id: str, db: Session = Depends(get_db)):
             "Content-Disposition": f'attachment; filename="ResumeIQ_Report_{analysis.id[:8]}.pdf"'
         }
     )
+

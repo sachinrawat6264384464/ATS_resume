@@ -84,3 +84,4 @@ class MatchingAgent:
             "stage": "Multi-Modal ATS Matching Executed",
             "progress_percentage": 65
         }
+

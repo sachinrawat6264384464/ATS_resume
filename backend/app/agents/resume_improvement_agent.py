@@ -90,3 +90,4 @@ class ResumeImprovementAgent:
             "stage": "Actionable Improvements Formulated",
             "progress_percentage": 90
         }
+

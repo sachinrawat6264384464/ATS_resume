@@ -37,3 +37,4 @@ class JDAnalyzerAgent:
             "stage": "Job Description Verified",
             "progress_percentage": 30
         }
+

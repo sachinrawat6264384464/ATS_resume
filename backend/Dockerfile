@@ -31,3 +31,4 @@ EXPOSE 8000
 
 # Start production server using uvicorn binding to 0.0.0.0
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]
+

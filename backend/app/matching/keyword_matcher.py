@@ -123,3 +123,4 @@ class KeywordMatcher:
             "total_required": len(jd_required_skills),
             "total_matched": len(matched_skills)
         }
+

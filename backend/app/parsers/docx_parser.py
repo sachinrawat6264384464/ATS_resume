@@ -64,3 +64,4 @@ class DocxParser:
             "is_empty": is_empty,
             "warnings": ["DOCX document has very little extractable text."] if is_empty else []
         }
+

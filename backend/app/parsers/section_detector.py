@@ -110,3 +110,4 @@ class SectionDetector:
                 sections[current_section].append(line)
 
         return {k: "\n".join(v).strip() for k, v in sections.items() if v}
+

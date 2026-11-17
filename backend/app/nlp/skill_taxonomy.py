@@ -204,3 +204,4 @@ class SkillTaxonomy:
     @classmethod
     def get_related_skills(cls, canonical_name: str) -> List[str]:
         return cls.RELATED_SKILLS.get(canonical_name, [])
+
