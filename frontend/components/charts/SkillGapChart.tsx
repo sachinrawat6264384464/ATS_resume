@@ -15,9 +15,9 @@ export default function SkillGapChart({
   missingCount,
 }: SkillGapChartProps) {
   const data = [
-    { name: "Verified Skills", value: matchedCount, color: "#059669" },
-    { name: "Related Stacks", value: relatedCount, color: "#3b82f6" },
-    { name: "Skill Gaps", value: missingCount, color: "#e11d48" },
+    { name: "Verified Skills", value: matchedCount, color: "#059669" }, // emerald-600
+    { name: "Related Stacks", value: relatedCount, color: "#10b981" }, // emerald-500
+    { name: "Skill Gaps", value: missingCount, color: "#e11d48" }, // rose-600 (gap indicator)
   ].filter((item) => item.value > 0);
 
   if (data.length === 0) {
@@ -47,9 +47,11 @@ export default function SkillGapChart({
           </Pie>
           <Tooltip
             contentStyle={{
-              borderRadius: "8px",
-              border: "1px solid #e2e8f0",
+              borderRadius: "10px",
+              border: "1px solid #d1fae5",
+              boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.05)",
               fontSize: "12px",
+              backgroundColor: "#ffffff",
             }}
           />
           <Legend
@@ -63,4 +65,3 @@ export default function SkillGapChart({
     </div>
   );
 }
-

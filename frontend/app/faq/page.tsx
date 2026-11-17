@@ -26,36 +26,37 @@ export default function FaqPage() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-      <div className="space-y-4 border-b border-slate-200 pb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
-          <HelpCircle className="w-4 h-4" />
-          <span>Knowledge Base</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Frequently Asked Questions</h1>
-        <p className="text-slate-600 text-base">
-          Detailed answers on ATS mechanics, privacy, and our agentic matching engine.
-        </p>
-      </div>
-
-      <div className="space-y-6">
-        {faqs.map((faq, i) => (
-          <div key={i} className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
-            <h3 className="font-bold text-slate-900 text-base">{faq.q}</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
+    <div className="min-h-screen bg-slate-50/70 py-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="space-y-4 border-b border-emerald-100 pb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold shadow-xs">
+            <HelpCircle className="w-4 h-4 text-emerald-600" />
+            <span>Knowledge Base</span>
           </div>
-        ))}
-      </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Frequently Asked Questions</h1>
+          <p className="text-slate-600 text-base">
+            Detailed answers on ATS mechanics, privacy, and our agentic matching engine.
+          </p>
+        </div>
 
-      <div className="pt-6 border-t border-slate-200 flex justify-between items-center text-sm">
-        <Link href="/" className="text-blue-600 hover:underline font-medium">
-          &larr; Back to Home
-        </Link>
-        <Link href="/analyze" className="text-blue-600 hover:underline font-medium">
-          Start Analysis &rarr;
-        </Link>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="p-6 bg-white rounded-2xl border border-emerald-100 shadow-sm space-y-2">
+              <h3 className="font-bold text-slate-900 text-base">{faq.q}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="pt-6 border-t border-slate-200 flex justify-between items-center text-sm font-semibold">
+          <Link href="/" className="text-emerald-700 hover:text-emerald-800 hover:underline">
+            &larr; Back to Home
+          </Link>
+          <Link href="/analyze" className="text-emerald-700 hover:text-emerald-800 hover:underline">
+            Start Analysis &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-

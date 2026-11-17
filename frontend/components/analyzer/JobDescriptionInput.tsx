@@ -119,10 +119,10 @@ export default function JobDescriptionInput({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+    <div className="bg-white rounded-2xl border border-emerald-100 p-6 shadow-sm space-y-5">
       <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-bold text-sm">
             2
           </div>
           <div>
@@ -146,9 +146,9 @@ export default function JobDescriptionInput({
         ) : (
           <button
             onClick={loadSample}
-            className="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-1 px-2.5 py-1 rounded-md hover:bg-blue-50 transition-colors"
+            className="text-xs text-emerald-700 hover:text-emerald-800 font-semibold flex items-center gap-1 px-2.5 py-1 rounded-md hover:bg-emerald-50 transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>Load Sample JD</span>
           </button>
         )}
@@ -173,7 +173,7 @@ export default function JobDescriptionInput({
                 placeholder="e.g. Senior Software Engineer"
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
               />
             </div>
             <div>
@@ -185,7 +185,7 @@ export default function JobDescriptionInput({
                 placeholder="e.g. Datadog, Stripe, Meta"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
               />
             </div>
           </div>
@@ -199,23 +199,23 @@ export default function JobDescriptionInput({
               value={rawText}
               onChange={(e) => setRawText(e.target.value)}
               placeholder="Paste full job description, qualifications, and requirements here..."
-              className="w-full p-3.5 text-xs text-slate-800 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 font-mono leading-relaxed"
+              className="w-full p-3.5 text-xs text-slate-800 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 font-mono leading-relaxed"
             />
           </div>
 
           <button
             onClick={handleParseJob}
             disabled={isLoading || !rawText.trim()}
-            className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:pointer-events-none shadow-sm flex items-center justify-center gap-2 transition-all"
+            className="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:pointer-events-none shadow-sm shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
           >
             {isLoading ? (
               <>
-                <Loader2 className="w-4 h-4 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin text-white" />
                 <span>Analyzing Job Description...</span>
               </>
             ) : (
               <>
-                <FileCheck2 className="w-4 h-4" />
+                <FileCheck2 className="w-4 h-4 text-white" />
                 <span>Extract & Verify Requirements</span>
               </>
             )}
@@ -224,7 +224,7 @@ export default function JobDescriptionInput({
       ) : (
         /* Parsed JD Review & Fine-tune Mode */
         <div className="space-y-4">
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-2.5">
+          <div className="p-4 bg-slate-50 rounded-xl border border-emerald-100 space-y-2.5">
             <div className="flex items-start justify-between">
               <div>
                 <h4 className="font-bold text-slate-900 text-sm">
@@ -236,7 +236,7 @@ export default function JobDescriptionInput({
               </div>
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1"
+                className="text-xs text-emerald-700 font-semibold hover:underline flex items-center gap-1"
               >
                 <Edit2 className="w-3.5 h-3.5" />
                 <span>{isEditing ? "Close Editor" : "Fine-Tune Skills"}</span>
@@ -245,18 +245,18 @@ export default function JobDescriptionInput({
 
             <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-200/60">
               <div className="p-2 bg-white rounded-lg border border-slate-200/60">
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 block text-[10px] uppercase font-semibold">
                   Experience Prerequisite
                 </span>
-                <span className="font-bold text-slate-800">
+                <span className="font-bold text-slate-900">
                   {editableData?.experience_years_required || 0}+ Years
                 </span>
               </div>
               <div className="p-2 bg-white rounded-lg border border-slate-200/60">
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 block text-[10px] uppercase font-semibold">
                   Required Skills Extracted
                 </span>
-                <span className="font-bold text-indigo-700">
+                <span className="font-bold text-emerald-700">
                   {editableData?.required_skills.length || 0} Skills
                 </span>
               </div>
@@ -270,7 +270,7 @@ export default function JobDescriptionInput({
                 Mandatory & Core Requirements:
               </span>
               {isEditing && (
-                <span className="text-[10px] text-blue-600">Click &times; to remove</span>
+                <span className="text-[10px] text-emerald-700">Click &times; to remove</span>
               )}
             </div>
 
@@ -278,13 +278,13 @@ export default function JobDescriptionInput({
               {editableData?.required_skills.map((skill, i) => (
                 <span
                   key={i}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-800 border border-indigo-200 text-xs font-medium"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium"
                 >
                   <span>{skill}</span>
                   {isEditing && (
                     <button
                       onClick={() => handleRemoveSkill(skill)}
-                      className="text-indigo-600 hover:text-indigo-900 ml-0.5"
+                      className="text-emerald-700 hover:text-emerald-900 ml-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -302,18 +302,18 @@ export default function JobDescriptionInput({
                   value={newRequiredSkill}
                   onChange={(e) => setNewRequiredSkill(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleAddSkill()}
-                  className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-indigo-500"
+                  className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-500"
                 />
                 <button
                   onClick={handleAddSkill}
-                  className="px-3 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold flex items-center gap-1 hover:bg-indigo-700"
+                  className="px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 hover:bg-emerald-700"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add</span>
                 </button>
                 <button
                   onClick={handleSaveEdits}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 hover:bg-emerald-700"
+                  className="px-3 py-1.5 rounded-lg bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1 hover:bg-emerald-800"
                 >
                   <Check className="w-3.5 h-3.5" />
                   <span>Save</span>
@@ -343,4 +343,3 @@ export default function JobDescriptionInput({
     </div>
   );
 }
-

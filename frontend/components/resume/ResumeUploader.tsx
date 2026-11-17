@@ -9,7 +9,6 @@ import {
   X,
   Loader2,
   Briefcase,
-  GraduationCap,
   Sparkles,
   ShieldAlert,
 } from "lucide-react";
@@ -86,10 +85,10 @@ export default function ResumeUploader({
   const parsed = uploadedResume?.parsed_data;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+    <div className="bg-white rounded-2xl border border-emerald-100 p-6 shadow-sm space-y-5">
       <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-bold text-sm">
             1
           </div>
           <div>
@@ -124,8 +123,8 @@ export default function ResumeUploader({
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
             isDragging
-              ? "border-blue-600 bg-blue-50/50"
-              : "border-slate-300 hover:border-blue-400 bg-slate-50/50"
+              ? "border-emerald-600 bg-emerald-50/50"
+              : "border-emerald-200 hover:border-emerald-400 bg-emerald-50/20"
           }`}
         >
           <input
@@ -137,9 +136,9 @@ export default function ResumeUploader({
           />
 
           <div className="max-w-xs mx-auto space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 mx-auto flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-100/80 text-emerald-700 mx-auto flex items-center justify-center">
               {isLoading ? (
-                <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+                <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
               ) : (
                 <UploadCloud className="w-6 h-6" />
               )}
@@ -152,8 +151,8 @@ export default function ResumeUploader({
               <p className="text-xs text-slate-500 mt-1">PDF or DOCX files up to 10MB</p>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">
-              <FileText className="w-3 h-3" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-emerald-100 text-[11px] font-medium text-emerald-800 shadow-sm">
+              <FileText className="w-3 h-3 text-emerald-600" />
               <span>Single or Multi-Column Layouts Supported</span>
             </div>
           </div>
@@ -161,10 +160,10 @@ export default function ResumeUploader({
       ) : (
         /* Parsed Resume Preview Card */
         <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
+          <div className="p-4 rounded-xl bg-slate-50 border border-emerald-100 space-y-3">
             <div className="flex items-start justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
@@ -179,8 +178,8 @@ export default function ResumeUploader({
                 </div>
               </div>
 
-              <span className="px-2.5 py-1 text-[11px] font-bold rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" />
+              <span className="px-2.5 py-1 text-[11px] font-bold rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Extracted</span>
               </span>
             </div>
@@ -189,8 +188,8 @@ export default function ResumeUploader({
             {parsed && (
               <div className="pt-2 border-t border-slate-200/60">
                 <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="text-slate-500 font-medium">Extraction Confidence</span>
-                  <span className="font-bold text-slate-700">
+                  <span className="text-slate-600 font-medium">Extraction Confidence</span>
+                  <span className="font-bold text-emerald-700">
                     {Math.round(parsed.extraction_confidence * 100)}%
                   </span>
                 </div>
@@ -223,14 +222,14 @@ export default function ResumeUploader({
           {parsed && parsed.skills.length > 0 && (
             <div className="space-y-1.5">
               <span className="text-xs font-semibold text-slate-700 flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
                 Extracted Skills ({parsed.skills.length}):
               </span>
               <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
                 {parsed.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200/60 text-xs font-medium"
+                    className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium"
                   >
                     {skill}
                   </span>
@@ -243,7 +242,7 @@ export default function ResumeUploader({
           {parsed && parsed.work_experience.length > 0 && (
             <div className="space-y-2 pt-2 border-t border-slate-100">
               <span className="text-xs font-semibold text-slate-700 flex items-center gap-1">
-                <Briefcase className="w-3.5 h-3.5 text-indigo-600" />
+                <Briefcase className="w-3.5 h-3.5 text-emerald-600" />
                 Work Experience ({parsed.work_experience.length} roles found):
               </span>
               <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
@@ -271,4 +270,3 @@ export default function ResumeUploader({
     </div>
   );
 }
-

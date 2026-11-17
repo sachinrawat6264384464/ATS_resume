@@ -19,9 +19,8 @@ export default function ScoreGauge({
   const strokeDashoffset = circumference - (Math.min(100, Math.max(0, score)) / 100) * circumference;
 
   const getColor = (s: number) => {
-    if (s >= 80) return "#16a34a"; // emerald-600
-    if (s >= 70) return "#2563eb"; // blue-600
-    if (s >= 55) return "#d97706"; // amber-600
+    if (s >= 75) return "#059669"; // emerald-600
+    if (s >= 55) return "#10b981"; // emerald-500
     return "#e11d48"; // rose-600
   };
 
@@ -81,4 +80,3 @@ export default function ScoreGauge({
     </div>
   );
 }
-
