@@ -8,40 +8,9 @@ from app.core.database import get_db
 from app.models.models import Resume, ParsedResume
 from app.schemas.resume import ResumeUploadResponse, ParsedResumeResponse, ContactInfo, WorkExperienceItem, EducationItem, ProjectItem
 from app.parsers.resume_parser import ResumeParser
+from app.core.security import validate_file_content, sanitize_text
 
 router = APIRouter()
-
-ALLOWED_EXTENSIONS = {".pdf", ".docx", ".doc"}
-MAX_BYTES = settings.MAX_UPLOAD_SIZE_MB * 1024 * 1024
-
-
-def validate_file_security(file: UploadFile, content: bytes):
-    # Extension validation
-    ext = os.path.splitext(file.filename or "")[1].lower()
-    if ext not in ALLOWED_EXTENSIONS:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported file format '{ext}'. Allowed formats: PDF (.pdf), Microsoft Word (.docx, .doc)."
-        )
-
-    # Size limit
-    if len(content) > MAX_BYTES:
-        raise HTTPException(
-            status_code=413,
-            detail=f"File exceeds maximum allowed size of {settings.MAX_UPLOAD_SIZE_MB}MB."
-        )
-
-    # Magic byte validation
-    if ext == ".pdf" and not content.startswith(b"%PDF"):
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid PDF file. The file header does not match genuine PDF format."
-        )
-    elif ext in [".docx", ".doc"] and not content.startswith(b"PK\x03\x04"):
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid DOCX file. The file header does not match genuine OpenXML document format."
-        )
 
 
 @router.post("/upload", response_model=ResumeUploadResponse)
@@ -54,9 +23,7 @@ async def upload_resume(
         raise HTTPException(status_code=400, detail="No file selected for upload.")
 
     content = await file.read()
-    validate_file_security(file, content)
-
-    ext = os.path.splitext(file.filename)[1].lower().replace(".", "")
+    ext = validate_file_content(file.filename, content)
     resume_id = str(uuid.uuid4())
     stored_filename = f"{resume_id}.{ext}"
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
@@ -80,7 +47,7 @@ async def upload_resume(
         file_type=ext,
         file_size=len(content),
         file_path=stored_filepath,
-        raw_text=parsed_result["raw_text"],
+        raw_text=sanitize_text(parsed_result["raw_text"]),
         is_processed=True
     )
     db.add(resume_record)

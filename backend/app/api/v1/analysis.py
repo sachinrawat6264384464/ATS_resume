@@ -187,15 +187,26 @@ def create_analysis(
     db.add(job_tracker)
     db.commit()
 
-    # Trigger pipeline execution in background
-    background_tasks.add_task(run_pipeline_sync, analysis_id, payload.resume_id, payload.job_id)
+    # Trigger pipeline execution in background (Celery worker or FastAPI BackgroundTasks)
+    dispatched_to_celery = False
+    try:
+        from app.core.celery_app import celery_app, run_ats_analysis_task
+        from app.core.redis_client import cache
+        if celery_app and cache.is_redis_available:
+            run_ats_analysis_task.delay(analysis_id, payload.resume_id, payload.job_id)
+            dispatched_to_celery = True
+    except Exception:
+        dispatched_to_celery = False
+
+    if not dispatched_to_celery:
+        background_tasks.add_task(run_pipeline_sync, analysis_id, payload.resume_id, payload.job_id)
 
     return AnalysisStatusResponse(
         analysis_id=analysis_id,
         status="processing",
         progress_percentage=10,
         stage="Starting Pipeline",
-        message="LangGraph agent workflow dispatched."
+        message="LangGraph agent workflow dispatched via " + ("Celery queue" if dispatched_to_celery else "Background tasks") + "."
     )
 
 

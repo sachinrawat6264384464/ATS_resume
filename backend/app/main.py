@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.core.database import init_db
+from app.core.middleware import SecurityHeadersMiddleware, RateLimitMiddleware
 from app.api.v1.health import router as health_router
 from app.api.v1.resumes import router as resumes_router
 from app.api.v1.jobs import router as jobs_router
@@ -40,6 +41,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(RateLimitMiddleware)
 
 # Exception handlers
 @app.exception_handler(Exception)

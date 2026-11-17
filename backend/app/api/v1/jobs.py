@@ -4,6 +4,7 @@ from app.core.database import get_db
 from app.models.models import JobDescription
 from app.schemas.job import JobDescriptionCreate, JobDescriptionResponse, JobExtractedData
 from app.parsers.jd_parser import JobDescriptionParser
+from app.core.security import sanitize_text
 
 router = APIRouter()
 
@@ -11,11 +12,12 @@ router = APIRouter()
 @router.post("", response_model=JobDescriptionResponse)
 def create_job_description(payload: JobDescriptionCreate, db: Session = Depends(get_db)):
     """Decomposes and stores a target job description."""
-    if len(payload.raw_text.strip()) < 20:
+    sanitized_text = sanitize_text(payload.raw_text)
+    if len(sanitized_text.strip()) < 20:
         raise HTTPException(status_code=400, detail="Job description text is too short to analyze.")
 
     extracted = JobDescriptionParser.parse(
-        raw_text=payload.raw_text,
+        raw_text=sanitized_text,
         title=payload.title,
         company=payload.company
     )
@@ -23,7 +25,7 @@ def create_job_description(payload: JobDescriptionCreate, db: Session = Depends(
     jd_record = JobDescription(
         title=extracted["title"] or payload.title,
         company=extracted["company"] or payload.company,
-        raw_text=payload.raw_text,
+        raw_text=sanitized_text,
         extracted_data=extracted
     )
     db.add(jd_record)
