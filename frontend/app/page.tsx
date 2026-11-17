@@ -33,20 +33,24 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/40 via-white to-white pt-20 pb-24 border-b border-emerald-100/80">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+      {/* HERO SECTION WITH ENHANCED HIGH-DEFINITION GRID BOXES */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/50 via-white to-white pt-20 pb-28 border-b border-emerald-100">
+        {/* Crisp Geometric Grid Boxes Background Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_80%_65%_at_50%_25%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
+
+        {/* Ambient Emerald Radial Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[520px] bg-[radial-gradient(ellipse_60%_50%_at_50%_10%,rgba(16,185,129,0.14),transparent_80%)] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-6">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold tracking-wide shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-200/90 text-emerald-800 text-xs font-semibold tracking-wide shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>100% Deterministic ATS Intelligence &middot; No Signup Required</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.14]">
               Real ATS Resume Analysis.{" "}
               <span className="bg-gradient-to-r from-emerald-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
                 Explainable, Evidence-Backed.
@@ -54,43 +58,43 @@ export default function LandingPage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
               Stop guessing why your resume gets rejected. ResumeIQ parses your resume and target job description using
               local semantic embeddings, BM25 keyword ranking, and deterministic NLP algorithms.
             </p>
 
             {/* CTA Group */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Link
                 href="/analyze"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/25 active:scale-[0.98] transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-xl shadow-emerald-600/25 active:scale-[0.98] transition-all"
               >
-                <span>Analyze My Resume</span>
+                <span>Analyze My Resume Now</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#features"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-white hover:bg-emerald-50/60 border border-slate-300 shadow-sm transition-all"
+                href="#how-it-works"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-slate-700 bg-white hover:bg-emerald-50/60 border border-slate-300 shadow-sm transition-all"
               >
-                <span>Explore Features</span>
+                <span>How Scoring Works</span>
               </Link>
             </div>
 
-            {/* Trust indicators */}
+            {/* Micro Feature Indicators */}
             <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-slate-600">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-slate-200/80 shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 <span>Zero Storage / Auto-purge</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-slate-200/80 shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>No API Key Required</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-slate-200/80 shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>PDF & DOCX Support</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-slate-200/80 shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>Calibrated Explainable Scores</span>
               </div>
@@ -98,21 +102,23 @@ export default function LandingPage() {
           </div>
 
           {/* Interactive ATS Teaser Preview Card */}
-          <div className="mt-14 max-w-4xl mx-auto rounded-2xl bg-white border border-emerald-100 shadow-xl shadow-emerald-950/5 p-6 sm:p-8 overflow-hidden">
+          <div className="mt-14 max-w-4xl mx-auto rounded-3xl bg-white/95 backdrop-blur-md border border-emerald-200/80 shadow-2xl shadow-emerald-950/5 p-6 sm:p-8 overflow-hidden">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
               <div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs uppercase font-bold tracking-wider text-slate-400">Live ATS Engine Preview</span>
+                  <span className="text-xs uppercase font-bold tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">
+                    Live ATS Engine Preview
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mt-1">Senior Full Stack Engineer &mdash; Analysis Demo</h3>
+                <h3 className="text-lg font-bold text-slate-900 mt-2">Senior Full Stack Engineer &mdash; Analysis Demo</h3>
               </div>
               <div className="flex items-center gap-3">
                 <div className="text-right">
                   <span className="text-xs text-slate-400 font-medium">ATS Match Score</span>
-                  <p className="text-2xl font-black text-emerald-700">84 <span className="text-xs text-slate-400 font-normal">/ 100</span></p>
+                  <p className="text-3xl font-black text-emerald-700">84 <span className="text-xs text-slate-400 font-normal">/ 100</span></p>
                 </div>
-                <span className="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <span className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Strong Match
                 </span>
               </div>
@@ -120,35 +126,35 @@ export default function LandingPage() {
 
             {/* Score Breakdown Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 py-6 border-b border-slate-100">
-              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100/80">
+              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100">
                 <span className="text-[11px] font-semibold text-slate-600 block">Keywords (40%)</span>
                 <span className="text-lg font-bold text-slate-900">88%</span>
                 <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
                   <div className="bg-emerald-600 h-1.5 rounded-full" style={{ width: "88%" }} />
                 </div>
               </div>
-              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100/80">
+              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100">
                 <span className="text-[11px] font-semibold text-slate-600 block">Semantic (25%)</span>
                 <span className="text-lg font-bold text-slate-900">85%</span>
                 <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
                   <div className="bg-emerald-500 h-1.5 rounded-full" style={{ width: "85%" }} />
                 </div>
               </div>
-              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100/80">
+              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100">
                 <span className="text-[11px] font-semibold text-slate-600 block">Experience (20%)</span>
                 <span className="text-lg font-bold text-slate-900">80%</span>
                 <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
                   <div className="bg-teal-600 h-1.5 rounded-full" style={{ width: "80%" }} />
                 </div>
               </div>
-              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100/80">
+              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100">
                 <span className="text-[11px] font-semibold text-slate-600 block">Projects (10%)</span>
                 <span className="text-lg font-bold text-slate-900">90%</span>
                 <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
                   <div className="bg-emerald-700 h-1.5 rounded-full" style={{ width: "90%" }} />
                 </div>
               </div>
-              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100/80 col-span-2 sm:col-span-1">
+              <div className="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100 col-span-2 sm:col-span-1">
                 <span className="text-[11px] font-semibold text-slate-600 block">Education (5%)</span>
                 <span className="text-lg font-bold text-slate-900">100%</span>
                 <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
@@ -196,6 +202,19 @@ export default function LandingPage() {
                   </span>
                 </div>
               </div>
+            </div>
+
+            {/* Bottom Card CTA */}
+            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <span className="text-slate-500 font-medium">
+                Want to see where your resume matches and where the critical gaps are?
+              </span>
+              <Link
+                href="/analyze"
+                className="inline-flex items-center gap-1.5 font-bold text-emerald-700 hover:text-emerald-800 hover:underline"
+              >
+                <span>Upload Your Resume &rarr;</span>
+              </Link>
             </div>
           </div>
         </div>
