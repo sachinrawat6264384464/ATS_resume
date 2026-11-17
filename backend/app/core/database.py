@@ -55,5 +55,6 @@ def get_db():
 
 def init_db():
     """Create all tables in the database."""
+    import app.models.models  # Ensure all model tables are registered with Base.metadata
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
     Base.metadata.create_all(bind=engine)

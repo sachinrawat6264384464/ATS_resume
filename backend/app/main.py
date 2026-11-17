@@ -9,6 +9,7 @@ from app.api.v1.health import router as health_router
 from app.api.v1.resumes import router as resumes_router
 from app.api.v1.jobs import router as jobs_router
 from app.api.v1.analysis import router as analysis_router
+from app.api.v1.reports import router as reports_router
 
 
 @asynccontextmanager
@@ -57,6 +58,7 @@ app.include_router(health_router, prefix=settings.API_V1_STR, tags=["System Heal
 app.include_router(resumes_router, prefix=f"{settings.API_V1_STR}/resumes", tags=["Resumes"])
 app.include_router(jobs_router, prefix=f"{settings.API_V1_STR}/jobs", tags=["Job Descriptions"])
 app.include_router(analysis_router, prefix=f"{settings.API_V1_STR}/analysis", tags=["ATS Analysis"])
+app.include_router(reports_router, prefix=f"{settings.API_V1_STR}/reports", tags=["Reports"])
 
 
 @app.get("/")
