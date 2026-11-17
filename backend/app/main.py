@@ -6,6 +6,8 @@ from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.core.database import init_db
 from app.api.v1.health import router as health_router
+from app.api.v1.resumes import router as resumes_router
+from app.api.v1.jobs import router as jobs_router
 
 
 @asynccontextmanager
@@ -52,6 +54,8 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 # Include Routers
 app.include_router(health_router, prefix=settings.API_V1_STR, tags=["System Health"])
+app.include_router(resumes_router, prefix=f"{settings.API_V1_STR}/resumes", tags=["Resumes"])
+app.include_router(jobs_router, prefix=f"{settings.API_V1_STR}/jobs", tags=["Job Descriptions"])
 
 
 @app.get("/")
@@ -62,4 +66,3 @@ def root():
         "docs_url": "/docs",
         "health_check": f"{settings.API_V1_STR}/health"
     }
-
